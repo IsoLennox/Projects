@@ -1,0 +1,52 @@
+body {background: #555; margin: 0;}
+
+#classroom {position: absolute; z-index: 2;}
+#desks {position: absolute; z-index: 4;}
+
+#bruce { 
+    width: 50px; 
+    height: 170px; 
+    position: absolute; 
+    top: 170px;
+    left: 200px;
+    z-index: 1;}
+/*BRUCE:
+
+start point: 200px
+enter door point: 130px
+z-index from 1 to 3
+(switch direction)
+end stand point: 530px +120%width
+*/
+
+
+#currentImg {position: absolute; z-index: 1}
+
+#slide1 {position: absolute; left: 330px; max-height: 200px; opacity:.5;}
+#slide2 {position: absolute; left: 680px; max-height: 200px; opacity:.5;}
+ 
+#caption1, #caption2{position: absolute; max-width: 350px; max-height: 150px; padding: 20px 50px; 
+    border-radius: 50%; background: rgba(255,255,255,0.8);
+    z-index: 999; left: 600px; top: 20px;
+    font-size: 30px; text-align: center;
+    box-shadow: 0px 1px 10px #000;
+    display: none;
+    
+} 
+
+#mrbaldwin { width: 60px; position: absolute; top: 160px;
+    left: 200px; z-index: 1;
+}
+
+#pageRefresh {font-size: 70px; 
+    z-index: 999; 
+    color: #00FF00;
+    border: none;
+    background: transparent;
+    position: absolute;
+top: 520px; left: 580px;
+    padding: 20px;
+    font-family: 'VT323';
+    display: none;
+    cursor: pointer;
+} 

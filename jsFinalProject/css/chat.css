@@ -1,0 +1,131 @@
+ #chatbox {width: 300px;
+     border: 1px solid grey;
+     margin: 0 auto;
+     padding: 20px;
+ }
+
+textarea.chatmessage {
+  /*position: absolute;
+  bottom: 1px;*/
+  /*left: 0;*/
+  width: 300px;
+  border: 0;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;*/
+  height: 100px;
+  -webkit-appearance: none;
+  outline: 0;
+  border-top: 3px solid #3e3e3e;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+
+h1.chattitle {
+  padding: 7px 20px 10px;
+  margin: 0 0 20px 0;
+  background: #333;
+  color: #FFF;
+  width: 100%;
+  font-size: 1.4em;
+}
+
+p.chatdescription {
+  padding: 0 20px;
+}
+
+ul {
+  letter-spacing: -4px;
+}
+ul li {
+  letter-spacing: normal;
+}
+
+ul.chatchatmessages {
+  padding: 20px;
+  list-style-type: none;
+  margin: 0 0 130px 0;
+  overflow: hidden;
+}
+ul.chatchatmessages li.chatchatmessage {
+  display: block;
+  clear: both;
+  overflow: hidden;
+  margin: 0 0 10px 0;
+}
+ul.chatchatmessages li.chatchatmessage img.user {
+  height: auto;
+  width: 70px;
+  border-radius: 50%;
+  float: left;
+  margin: 0 20px 20px 0;
+}
+ul.chatmessages li.chatmessage h1.chatname {
+  display: block;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: #8b8b8b;
+  margin: 0 0 5px 0;
+  text-align: right;
+}
+ul.chatmessages li.chatmessage p.text {
+  display: block;
+  background-color: rgba(221, 246, 255, 0.6);
+  padding: 7px 20px;
+  margin: 0 0 0 35px;
+  line-height: 1.4em;
+  border-radius: 0px 4px 4px 4px;
+}
+ul.chatmessages li.chatmessage p.text:hover {
+  background-color: rgba(221, 246, 255, 0.8);
+}
+ul.chatmessages li.chatmessage:nth-of-type(2n) h1.chatname {
+  text-align: left;
+}
+ul.chatmessages li.chatmessage:nth-of-type(2n) img.user {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+ul.chatmessages li.chatmessage:nth-of-type(2n) p.text {
+  background-color: rgba(221, 255, 235, 0.6);
+  margin: 0 35px 0 0;
+  border-radius: 4px 0 4px 4px;
+}
+ul.chatmessages li.chatmessage:nth-of-type(2n) p.text:hover {
+  background-color: rgba(221, 255, 235, 0.8);
+}
+
+
+textarea.chatmessage:focus {
+  background: white;
+}
+textarea.chatmessage.required {
+  background: #ffdddd;
+}
+
+div.actions {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  background: #FFF;
+  width: 100%;
+}
+div.actions button {
+  float: right;
+  width: 300px;
+  height: 30px;
+  font-size: 1.1em;
+  background: #3e3e3e;
+  color: #FFF;
+  border: 0;
+  padding: 5px 12px;
+  -webkit-appearance: none;
+  outline: 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  cursor: pointer;
+}
+div.actions button:hover {
+  background: #252525;
+}

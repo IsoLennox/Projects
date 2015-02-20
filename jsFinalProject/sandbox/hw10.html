@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<!--
+
+Created by: Isobel Lennox
+For the Class:  CTEC126
+Assignment: Homework 10
+Date: 11/6/2014
+
+
+-->
+
+
+
+<html lang="en">
+
+<head>
+    <title>Isobel Lennox</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="../nav.css" rel="stylesheet" media="screen">
+    <script src="js/hw6.js" type="text/javascript"></script>
+
+
+    <style>
+        
+        body {background-image: url(img/greensmoke.jpg)}
+        input,
+        fieldset {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        #required {
+            color: red;
+            margin-bottom: 20px;
+            border: solid 1px grey;
+            padding: 20px;
+        }
+        fieldset {
+            padding: 10px;
+        }
+        #terms {
+            margin-right: 15px;
+        }
+        .error {
+            color: red;
+        }
+        label {
+            margin-right: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav role='navigation'>
+        <span id="name">Isobel Lennox</span>
+
+        <ul>
+
+            <li><a href="#">More</a>
+                <ul>
+                    <li><a href="http://ctec.clark.edu/~i.lennox/ctec126/homework/hw1/">hw1</a>
+                    </li>
+                    <li><a href="http://ctec.clark.edu/~i.lennox/ctec126/homework/hw2/">hw2</a>
+                    </li>
+                    <li><a href="http://ctec.clark.edu/~i.lennox/ctec126/homework/hw3/hw3.html">hw3</a>
+                    </li>
+                    <li><a href="http://ctec.clark.edu/~i.lennox/ctec126/homework/hw4/hw4.html">hw4</a>
+                    </li>
+                    <li><a href="http://ctec.clark.edu/~i.lennox/ctec126/homework/hw5/hw5.html">hw5</a>
+                    </li>
+                    <li><a href="http://ctec.clark.edu/~i.lennox/ctec126/homework/hw6/hw6.html">hw6</a>
+                    </li>
+                    <li><a href="http://ctec.clark.edu/~i.lennox/ctec126/homework/hw7/hw7.html">hw7</a>
+                    </li>
+                    <li><a href="http://ctec.clark.edu/~i.lennox/ctec126/homework/hw8/hw8.html">hw8</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+
+    <h1>Homework 10</h1>
+    <h2>jQUery Form Validation</h2>
+
+
+    <div id="content">
+
+
+        <form name="order" id="order" action="http://ctec.clark.edu/~belgort/formprocessing/processform.php" method="post">
+
+
+            <div id="required">All fields are required.
+                <br/>
+            </div>
+            <div>
+
+
+                <label for="first">First Name:</label>
+                <input type="text" name="first" id="first" size="20">
+
+            </div>
+            <!-- end first name -->
+
+            <div>
+                <label for="last">Last Name:</label>
+                <input type="text" name="last" id="last" size="20">
+            </div>
+            <!-- end last name -->
+
+            <div>
+                <label for="address">Address:</label>
+                <input type="text" name="address" id="address" size="40">
+            </div>
+            <!-- end -->
+
+            <div>
+                <label for="city">City:</label>
+                <input type="text" name="city" id="city" size="30">
+            </div>
+            <!-- end -->
+
+
+
+
+            <div>
+                <fieldset>
+                    <legend id="slegend">State</legend>
+                    <select name="state" id="state">
+                        <option value="-">--Select---</option>
+                        <option value="New York">New York</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Washington">Washington</option>
+                        <option value="Washington">Virginia</option>
+                        <option value="Washington">Florida</option>
+                    </select>
+                </fieldset>
+
+            </div>
+            <!-- end  -->
+
+
+
+            <div>
+                <fieldset>
+                    <legend id="plegend">Product</legend>
+                    <select name="product" id="product">
+                        <option value="-">--Select---</option>
+                        <option value="New York">USB Mouse</option>
+                        <option value="Oregon">Mousepad</option>
+                        <option value="Washington">Flash Drive</option>
+                        <option value="Washington">Laptop Case</option>
+                        <option value="Washington">Phone Charger</option>
+                    </select>
+                </fieldset>
+
+            </div>
+            <!-- end  -->
+
+
+            <div>
+                <label for="quantity">Quantity:</label>
+                <input type="text" name="quantity" id="quantity" size="5">
+            </div>
+            <!-- end  -->
+
+
+            <div>
+                <fieldset>
+                    <legend>Can we contact you?</legend>
+
+                    <input type="radio" name="contact" value="yes" id="yes" checked>
+                    <label for="male">Yes</label>
+                    <input type="radio" name="contact" value="no" id="no">
+                    <label for="female">No</label>
+                </fieldset>
+            </div>
+
+            <div>
+                <input type="checkbox" name="terms"   id="terms" checked>
+                <label for="male">I accept the terms &amp; conditions.</label>
+
+            </div>
+
+            <div>
+                <input type="submit" value="Submit" id="submit">
+            </div>
+
+
+
+
+        </form>
+
+
+    </div>
+    <!-- END CONTENT -->
+
+    <!-- Load jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+        // logger function
+        // write stuff out to the console
+        function logger(message) {
+            console.log("Logger: " + message);
+        }
+
+        $(document).ready(function() {
+            // bind submit button to an event for the form
+            $('#order').submit(function(evt) {
+
+                //reset default settings at each click, so new errors can appear and fixed ones dissappear
+                $('#required').html("");
+                $('#first,#last, #address, #city, #state, #product, #quantity ').css('border', '1px solid grey');
+                $("label[for='first']").html("<span class=''>First Name: </span>");
+                $("label[for='last']").html("<span class=''>Last Name: </span>");
+                $("label[for='address']").html("<span class=''>Address: </span>");
+                $("label[for='city']").html("<span class=''>City: </span>");
+                $("label[for='quantity']").html("<span class=''>Quantity: </span>");
+                $("splegend").html("<span class=''>State </span>");
+                $("#plegend").html("<span class=''>Product  </span>");
+
+                /********************************/
+                /*                              */
+                /* check if fields empty: DO    */
+                /*         THRoW ERRORS         */
+                /********************************/
+
+                // check first name field
+                var first = $('#first').val();
+                if (first === '') {
+                    $('#first').css('border', '2px solid red');
+                    //write alert in bucket
+                    $('#required').append("<br/>First Name is required.<br/>");
+                    //write alert in DOM
+                    $("label[for='first']").html("<strong class='error'>First Name is required: </strong>");
+                }
+
+                // last name
+                var last = $('#last').val();
+                if (last === '') {
+                    $('#last').css('border', '2px solid red');
+                    //write alert in bucket
+                    $('#required').append("<br/>Last Name is required.<br/>");
+                    //write alert in DOM
+                    $("label[for='last']").html("<strong class='error'>Last Name is required: </strong>");
+
+                }
+
+                // Address
+                var address = $('#address').val();
+                if (address === '') {
+                    $('#address').css('border', '2px solid red');
+                    //write alert in bucket
+                    $('#required').append("<br/>Address is required.<br/>");
+                    //write alert in DOM
+                    $("label[for='address']").html("<strong class='error'>Address is required: </strong>");
+                }
+
+
+                //  City
+                var city = $('#city').val();
+                if (city === '') {
+                    $('#city').css('border', '2px solid red');
+                    //write alert in bucket
+                    $('#required').append("<br/>City is required.<br/>");
+                    //write alert in DOM
+                    $("label[for='city']").html("<strong class='error'>City is required: </strong>");
+                }
+
+
+                //  State
+                var state = $('#state').val();
+                if (state === '' || state === '-') {
+                    $('#state').css('border', '2px solid red');
+                    //write alert in bucket
+                    $('#required').append("<br/>State selection is required.<br/>");
+                    //write alert in DOM
+                    $("#slegend").html("<strong class='error'>State selection is required </strong>");
+                }
+
+                // Product
+                var product = $('#product').val();
+                if (product === '' || product === '-') {
+                    $('#product').css('border', '2px solid red');
+                    //write alert in bucket
+                    $('#required').append("<br/>Product selection is required.<br/>");
+                    //write alert in DOM
+                    $("#plegend").html("<strong class='error'>Product Selection is required </strong>");
+
+                }
+
+                // Quantity
+                var quantity = $('#quantity').val();
+                if (quantity === '') {
+                    $('#quantity').css('border', '2px solid red');
+                    //write alert in bucket
+                    $('#required').append("<br/>Quantity required.<br/>");
+                    //write alert in DOM
+                    $("label[for='quantity']").html("<strong class='error'>Quantity is required </strong>");
+
+                }
+
+
+                /************************/
+                /*                      */
+                /* RADIO/CHECK BOXES    */
+                /*                      */
+                /************************/
+
+                // radio button value
+                $(':radio:checked').each(function() {
+                    logger('gender = ' + $(this).val());
+                });
+
+                // check box values
+                email = $('#email').val();
+                logger('email = ' + email);
+
+                // check box values
+                phone = $('#phone').val();
+                logger('phone = ' + phone);
+
+                // select pull down
+                var state = $('#state').val();
+                logger('state = ' + state);
+                
+              
+                 
+
+                // this will not submit the form
+                // note the parameter in the .ready function
+                // use this to stop the form in it's tracks. That means don't submit it.
+                
+               
+                    
+                    
+                evt.preventDefault();
+
+            });  //end $('#order').submit(function(evt){...validation}
+            
+             
+
+
+        }); //end document ready
+ //MAKE SURE USER AGREES WITH TERMS
+ 
+        
+         $('#terms').click(function(){
+  
+               alert("clicked");
+ });
+        
+        
+    </script>
+
+</body>
+
+
+</html>

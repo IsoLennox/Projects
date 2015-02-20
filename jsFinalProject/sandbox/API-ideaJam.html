@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Google Maps</title>
+<link href="../_css/site.css" rel="stylesheet">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    
+<script>
+		// http://ideajam.net/ideajam/p/ij.nsf/jsonGetRecentComments
+		// http://api.jquery.com/jquery.getjson/
+		
+		$(document).ready(function(){
+			var comments = '<ul>';
+            
+            // Get API URL
+			var ideajam_api = "http://ideajam.net/ideajam/p/ij.nsf/jsonGetRecentComments";
+            var ideaspaces_api = 'http://ideajam.net/ideajam/p/ij.nsf/jsonGetIdeaSpaces';
+            
+//            
+//            // FIRST, inspect JSON object to change properties
+//			$.getJSON(ideajam_api,function(data){;
+//				$.each(data,function(key,val){
+//					for (var i=0 ; i < val.length; i++){
+//						   comments = comments + "<li>" + val[i].createdby + " " + val[i].datecreated + ": " + val[i].comment + "</li>";
+//						};
+//				}); // each
+//				
+//				comments = comments + "</ul>";
+//				$('body').append(comments);
+//				
+//			}); // end getjson			
+//		}); // end docready
+    
+    
+     
+            // different API
+			$.getJSON(ideaspaces_api,function(data){;
+				$.each(data,function(key,val){
+					for (var i=0 ; i < val.length; i++){
+						   comments = comments + "<li><strong>" + val[i].ideaspace + "</strong><br/> Tags: "+ val[i].subideaspaces +"</li><br/>";
+						};
+				}); // each
+				
+				comments = comments + "</ul>";
+				$('body').append(comments);
+				
+			}); // end getjson			
+		}); // end docready
+    
+    
+    
+    
+    
+    
+	</script>
+
+    
+    
+</head>
+<body>
+<div class="wrapper">
+  
+		</div>
+ 
+
+ 
+</body>
+</html>

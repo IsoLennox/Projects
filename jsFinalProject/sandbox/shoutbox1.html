@@ -1,0 +1,59 @@
+<html><head>
+     <link href="css/shoutbox.css" rel="stylesheet" media="screen">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script><style type="text/css"></style>
+        <script>
+		$(function() {
+ 
+    $('#submit').click(function() {
+        // getting the values that user typed
+        var name    = $('#name').val();
+        var message = $('#message').val();
+        // forming the queryString
+        var data= 'name='+ name +'&message='+ message;
+ 
+        // ajax call
+        $.ajax({
+            type: 'POST',
+            url: 'shout.php',
+            data: data,
+            success: function(html){ // this happen after we get result
+                $('#shout').slideToggle(1, function(){
+                    $(this).html(html).slideToggle(1);
+                    $('#message').val('');
+                });
+          }
+        });    
+        return false;
+    });
+});
+
+function refresh_shoutbox() {
+    // we need some post data 
+    var data = 'refresh=1';
+     
+    $.ajax({
+            type: 'POST',
+            url: 'shout.php',
+            data: data,
+            success: function(html){ // this happen after we get result
+                $('#shout').html(html);
+            }
+        });
+}
+ 
+//populating shoutbox the first time
+refresh_shoutbox();
+// recurring refresh every 15 seconds
+setInterval('refresh_shoutbox()', 15000);
+</script>
+    </head>
+	<body style="
+    font-family: 'Arial' 'sans-serif';
+">
+	<div id="boxchat">
+<div id="shout"><ul><li><span class="date">20.03.2014 10:25</span><span class="name">csagan</span><span class="message">test</span></li><li><span class="date">20.03.2014 10:25</span><span class="name">BDizzle</span><span class="message">testing</span></li><li><span class="date">20.03.2014 10:25</span><span class="name">TheNeutralParty</span><span class="message">DrBeefSmack</span></li><li><span class="date">20.03.2014 10:25</span><span class="name">LNIPeachy</span><span class="message">test</span></li><li><span class="date">20.03.2014 10:28</span><span class="name">lordcapell</span><span class="message">test</span></li><li><span class="date">20.03.2014 10:31</span><span class="name">AmnesiaHaze</span><span class="message">another test</span></li><li><span class="date">20.03.2014 10:34</span><span class="name">Default User</span><span class="message"></span></li><li><span class="date">20.03.2014 10:38</span><span class="name">DrBeefSmack</span><span class="message">testing</span></li><li><span class="date">20.03.2014 10:38</span><span class="name">MitNavnerVerylang</span><span class="message">blah</span></li><li><span class="date">20.03.2014 10:39</span><span class="name">dizzle</span><span class="message">yay it works</span></li></ul></div>
+<form method="post" action="shout.php"><input type="text" id="name" name="name" value="Default User" style="display:none;" disabled="">
+	<input type="text" id="message" name="message" class="message"><input type="submit" id="submit" value="Submit">
+      </form></div>
+
+	</body></html>

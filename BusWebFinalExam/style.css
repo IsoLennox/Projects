@@ -1,0 +1,116 @@
+ 
+
+/*Basic reset*/
+* {margin: 0; padding: 0;}
+
+body {
+	background: #4EB889;
+	font-family: Nunito, arial, verdana;
+    margin: 20px;
+    
+}
+
+header {padding: 20px;}
+
+img {box-shadow: 
+		0 5px 15px 1px rgba(0, 0, 0, 0.6), 
+		0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+
+#accordian {
+	background: rgba(255,255,255,.7);
+	width: 80%;
+	margin: 90px auto 0 auto;
+	color: black;
+	/*Some cool shadow and glow effect*/
+	box-shadow: 
+		0 5px 15px 1px rgba(0, 0, 0, 0.6), 
+		0 0 200px 1px rgba(255, 255, 255, 0.5);
+}
+/*heading styles*/
+#accordian h3 {
+	font-size: 16px;
+    font-weight: 100;
+	line-height: 34px;
+	padding: 10px 10px;
+	cursor: pointer;
+	/*fallback for browsers not supporting gradients*/
+	background: #fff; 
+	background: linear-gradient(#fff, #dadada);
+    border-bottom: 1px solid grey;
+}
+
+#welcome h3 {background:  linear-gradient(#3C3F41, grey,grey, #3C3F41); 
+    font-weight: 900; 
+    color: white; 
+    font-size: 24px;
+    text-shadow: 0 0 10px #000;
+}
+/*heading hover effect*/
+#accordian h3:hover {
+	/*color:grey;*/
+}
+ 
+/*list items*/
+#accordian li {
+	list-style-type: none;
+}
+/*links*/
+
+
+/**padding*/
+
+#accordian ul p{padding:20px;}
+
+/*hover effect on links
+#accordian ul ul li a:hover {
+	background: rgba(255,255,255,.7);
+	border-left: 5px solid lightgreen;
+}*/
+/*Lets hide the non active LIs by default*/
+#accordian ul ul {
+	display: none;
+}
+#accordian li.active ul {
+	display: block;
+}
+
+
+/*  ANSWER CONTENT */
+
+.query, .note{ font-style: italic; }
+.note {margin: 0 auto; width: 500px;}
+.myAnswer {padding: 20px;
+    background: rgba(255,255,255,.5);
+    border-radius: 50px;
+    margin: 30px;
+}
+
+#accordian .circle li {list-style: circle; margin-left: 90px;}
+
+#scrollboxSm, #scrollboxMed{ 
+    overflow: scroll;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid grey;
+    box-shadow: 
+		0 5px 15px 1px rgba(0, 0, 0, 0.6), 
+		0 0 200px 1px rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.8);
+}
+#scrollboxSm{
+     width: 400px;
+     height: 200px;}
+#scrollboxMed {
+    width: 600px;
+    height: 300px;
+}
+
+#scrollbox br{line-height: 2em;}
